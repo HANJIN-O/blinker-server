@@ -1,0 +1,38 @@
+{
+  "name": "Blinker-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/codestates/Blinker-server.git",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mysql2": "^1.7.0",
+    "pm2": "^3.5.1",
+    "sequelize": "^5.18.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-config-prettier": "^6.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
+    "nodemon": "^1.19.1",
+    "prettier": "1.18.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
