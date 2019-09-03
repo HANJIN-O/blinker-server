@@ -1,10 +1,17 @@
-// eslint-disable-next-line no-unused-vars
 const controller = require("./controller");
 const router = require("express").Router();
 
-router.get("/graphql", (req, res) => {
-  console.log("hello");
-  res.send("hello this is neww app server");
-});
+//회원가입
+router.post("/users", (req, res) => {});
+
+//로그인
+
+//점수등록
+
+//랭킹보기
+
+//친구추가
+
+//친구랭킹
 
 module.exports = router;
