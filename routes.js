@@ -2,8 +2,9 @@
 const controller = require("./controller");
 const router = require("express").Router();
 
-router.get("/", () => {
+router.get("/graphql", (req, res) => {
   console.log("hello");
+  res.send("hello this is neww app server");
 });
 
 module.exports = router;
