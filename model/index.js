@@ -7,5 +7,8 @@ module.exports = {
     post: async function(reqBody) {
       return await db.signup.post(reqBody);
     }
+  },
+  signin: {
+    post: async function(reqBody) {}
   }
 };

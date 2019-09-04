@@ -12,5 +12,8 @@ module.exports = {
           else return sequelize.users.create(reqBody);
         });
     }
+  },
+  signin: {
+    post: async function(reqBody) {}
   }
 };
