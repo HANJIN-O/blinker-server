@@ -2,7 +2,7 @@ const sequelize = require("./schema");
 
 module.exports = {
   // 회원가입
-  users: {
+  signup: {
     post: async function(reqBody) {
       console.log(reqBody);
       return sequelize.users

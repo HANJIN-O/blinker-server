@@ -2,10 +2,10 @@ const db = require("../db");
 
 module.exports = {
   // 회원가입
-  users: {
+  signup: {
     // 회원가입
     post: async function(reqBody) {
-      return await db.users.post(reqBody);
+      return await db.signup.post(reqBody);
     }
   }
 };
