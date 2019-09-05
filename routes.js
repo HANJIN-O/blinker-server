@@ -2,6 +2,7 @@ const controller = require("./controller");
 const router = require("express").Router();
 const minute = 60 * 1000;
 //회원가입
+
 router.post("/signup", async (req, res) => {
   return await controller.signup
     .post(req.body)
@@ -16,7 +17,7 @@ router.post("/signup", async (req, res) => {
     });
 });
 
-//로그인
+// 로그인
 router.post("/signin", async (req, res) => {
   console.log(req.session);
   return await controller.signin
@@ -34,12 +35,36 @@ router.post("/signin", async (req, res) => {
     });
 });
 
-//점수등록
+// 점수등록 ( 게임(gameId), 아이디(userid), 점수(score) )
+router.post("/score", async (req, res) => {
+  return await controller.score
+    .post(req.body)
+    .then(result => {
+      res.status.send(result);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400);
+      res.send(err);
+    });
+});
 
-//랭킹보기
+// 랭킹보기
+router.get("/ranking", async (req, res) => {
+  return await controller.ranking
+    .get(req.body)
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(400);
+      res.send(err);
+    });
+});
 
-//친구추가
+// 친구추가
 
-//친구랭킹
+// 친구랭킹
 
 module.exports = router;
