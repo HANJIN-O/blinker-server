@@ -11,7 +11,9 @@ app.use(cors());
 app.use(cookieParser());
 app.use(
   session({
-    secret: "eencryption"
+    secret: "eencryption",
+    resave: false,
+    saveUninitialized: false
   })
 );
 app.use(express.json());

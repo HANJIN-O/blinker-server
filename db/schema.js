@@ -2,7 +2,8 @@ const sequelize = {};
 const Sequelize = require("sequelize");
 const db = new Sequelize("blinker", "root", "", {
   host: "localhost",
-  dialect: "mysql"
+  dialect: "mysql",
+  logging: false
 });
 
 const Users = db.define("Users", {
