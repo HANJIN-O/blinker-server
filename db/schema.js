@@ -45,9 +45,9 @@ const Games = db.define("games", {
 Scores.belongsTo(Users, { as: "user" });
 Scores.belongsTo(Games, { as: "game" });
 
-Scores.sync({ alter: true })
-  .then(() => Users.sync({ alter: true }))
+Users.sync({ alter: true })
   .then(() => Games.sync({ alter: true }))
+  .then(() => Scores.sync({ alter: true }))
   .then(() => console.log("done!!!!!!!!!!!"));
 
 sequelize.scores = Scores;
