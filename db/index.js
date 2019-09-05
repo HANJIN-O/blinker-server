@@ -22,6 +22,7 @@ module.exports = {
         .catch(err => err);
     }
   },
+
   signin: {
     post: async function(reqBody) {
       let salt = await sequelize.users

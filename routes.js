@@ -39,8 +39,8 @@ router.post("/signin", async (req, res) => {
 router.post("/score", async (req, res) => {
   return await controller.score
     .post(req.body)
-    .then(result => {
-      res.status.send(result);
+    .then(() => {
+      res.status(200).send("Score posted");
     })
     .catch(err => {
       console.log(err);
