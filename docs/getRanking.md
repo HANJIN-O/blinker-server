@@ -2,7 +2,7 @@
 
 - **URL**
 
-  `/rank/home`
+  `/getrank`
 
 - **Method:**
 
