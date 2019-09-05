@@ -1,5 +1,7 @@
 const sequelize = {};
 const Sequelize = require("sequelize");
+const config = require("../config/config.json");
+
 const db = new Sequelize("blinker", "root", "", {
   host: "localhost",
   dialect: "mysql",
