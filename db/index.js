@@ -48,5 +48,13 @@ module.exports = {
         .then(result => [result, reqBody.username, cookies])
         .catch(err => err);
     }
+  },
+
+  // 점수등록
+  score: {
+    post: async function(reqBody) {
+      console.log("db index ", reqBody);
+      return sequelize.scores.create(reqBody);
+    }
   }
 };
