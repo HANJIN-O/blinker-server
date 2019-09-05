@@ -2,17 +2,11 @@
 
 - **URL**
 
-  `/rank/home`
+  `/getrank`
 
 - **Method:**
 
   GET
-
-* **URL Params**
-
-  **Required:**
-
-  `gamename=[string]`
 
 - **Response Body**
 
