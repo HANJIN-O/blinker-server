@@ -6,7 +6,7 @@ const db = new Sequelize("blinker", "root", "", {
   logging: false
 });
 
-const Users = db.define("Users", {
+const Users = db.define("users", {
   username: Sequelize.STRING,
   password: Sequelize.STRING,
   salt: Sequelize.STRING,
@@ -20,7 +20,7 @@ const Users = db.define("Users", {
   }
 });
 
-const Scores = db.define("Scores", {
+const Scores = db.define("scores", {
   score: Sequelize.INTEGER,
   createdAt: {
     type: Sequelize.DATE(3),
