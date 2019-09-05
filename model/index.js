@@ -9,6 +9,8 @@ module.exports = {
     }
   },
   signin: {
-    post: async function(reqBody) {}
+    post: async function(reqBody) {
+      return await db.signin.post(reqBody);
+    }
   }
 };
