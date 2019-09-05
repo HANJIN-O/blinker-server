@@ -8,6 +8,7 @@ const db = new Sequelize("blinker", "root", "", {
 const Users = db.define("Users", {
   username: Sequelize.STRING,
   password: Sequelize.STRING,
+  salt: Sequelize.STRING,
   createdAt: {
     type: Sequelize.DATE(3),
     defaultValue: Sequelize.literal("CURRENT_TIMESTAMP(3)")

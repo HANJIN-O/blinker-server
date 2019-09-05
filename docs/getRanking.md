@@ -8,12 +8,6 @@
 
   GET
 
-* **URL Params**
-
-  **Required:**
-
-  `gamename=[string]`
-
 - **Response Body**
 
   Type : JSON

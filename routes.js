@@ -1,6 +1,6 @@
 const controller = require("./controller");
 const router = require("express").Router();
-
+const minute = 60 * 1000;
 //회원가입
 router.post("/signup", async (req, res) => {
   return await controller.signup
@@ -18,15 +18,17 @@ router.post("/signup", async (req, res) => {
 
 //로그인
 router.post("/signin", async (req, res) => {
+  console.log(req.session);
   return await controller.signin
     .post(req.body)
     .then(result => {
-      if (result !== 0) throw `{error: username or password is not correct}`;
-      res.status(200).send("로그인 되었습니다");
-      res.redirect("/");
+      if (result[0] === null)
+        throw `{error: username or password is not correct}`;
+      res.status(200);
+      res.cookie("blinker", [result[1], result[2]], { maxAge: 100 * minute });
+      res.send("Login Success");
     })
     .catch(err => {
-      console.log(err);
       res.status(400);
       res.send(err);
     });

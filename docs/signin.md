@@ -24,7 +24,7 @@
 - **Success Response:**
 
   - **Code:** 200 <br />
-    **Content:** `{ id : 12 }`
+    **Content:** `Login Success`
 
 - **Error Response:**
 

@@ -6,5 +6,10 @@ module.exports = {
     post: async function(reqBody) {
       return await model.signup.post(reqBody);
     }
+  },
+  signin: {
+    post: async function(reqBody) {
+      return await model.signin.post(reqBody);
+    }
   }
 };
