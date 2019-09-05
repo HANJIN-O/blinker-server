@@ -24,9 +24,8 @@ router.post("/signin", async (req, res) => {
     .then(result => {
       if (result[0] === null)
         throw `{error: username or password is not correct}`;
-      res.status(200);
       res.cookie("blinker", [result[1], result[2]], { maxAge: 100 * minute });
-      res.send("Login Success");
+      res.status(200).send("Login Success");
     })
     .catch(err => {
       res.status(400);
