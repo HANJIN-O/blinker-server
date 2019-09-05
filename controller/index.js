@@ -11,5 +11,12 @@ module.exports = {
     post: async function(reqBody) {
       return await model.signin.post(reqBody);
     }
+  },
+
+  // 점수등록
+  score: {
+    post: async function(reqBody) {
+      return await model.score.post(reqBody);
+    }
   }
 };

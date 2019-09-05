@@ -3,7 +3,6 @@ const db = require("../db");
 module.exports = {
   // 회원가입
   signup: {
-    // 회원가입
     post: async function(reqBody) {
       return await db.signup.post(reqBody);
     }
@@ -11,6 +10,13 @@ module.exports = {
   signin: {
     post: async function(reqBody) {
       return await db.signin.post(reqBody);
+    }
+  },
+
+  // 점수등록
+  score: {
+    post: async function(reqBody) {
+      return await db.score.post(reqBody);
     }
   }
 };
