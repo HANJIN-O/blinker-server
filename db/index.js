@@ -63,6 +63,7 @@ module.exports = {
     get: async function(reqBody) {
       return sequelize.scores
         .findAll({
+          attributes: ["score"],
           include: [
             {
               model: sequelize.users,
@@ -83,15 +84,13 @@ module.exports = {
           for (let i = 0; i < res.length; i++) {
             let username = res[i].dataValues.user.dataValues;
             let gamename = res[i].dataValues.game.dataValues;
-            let obj = Object.assign(res[i].dataValues);
-            delete obj.id;
-            delete obj.userId;
-            delete obj.gameId;
-            delete obj.game;
-            delete obj.user;
-            delete obj.createdAt;
-            delete obj.updatedAt;
-            ret.push(Object.assign(obj, username, gamename));
+            ret.push(
+              Object.assign(
+                { score: res[i].dataValues.score },
+                username,
+                gamename
+              )
+            );
           }
           console.log(ret);
           return ret;
