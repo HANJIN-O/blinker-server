@@ -16,8 +16,8 @@
 
   ```
   {
-    "userId": [integer],
-    "gameId": [integer],
+    "username": [string],
+    "gamename": [string],
     "score": [integer]
   }
   ```
