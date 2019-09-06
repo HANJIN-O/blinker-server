@@ -16,8 +16,9 @@
 
   ```
   {
+    "score": [integer],
     "username": [string],
-    "score": [integer]
+    "gamename": [string]
   }
   ```
 
@@ -31,4 +32,4 @@
 - **Error Response:**
 
   - **Code:** 400 Bad Request <br />
-    **Content:** `{ error : "need Gamename" }`
+    **Content:** `{ error : "unexpected error" }`

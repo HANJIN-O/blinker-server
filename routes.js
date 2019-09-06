@@ -34,12 +34,12 @@ router.post("/signin", async (req, res) => {
     });
 });
 
-// 점수등록 ( 게임(gameId), 아이디(userid), 점수(score) )
+// 점수등록 ( gamename, username, score )
 router.post("/score", async (req, res) => {
   return await controller.score
     .post(req.body)
-    .then(() => {
-      res.status(200).send("Score posted");
+    .then(result => {
+      res.status(200).send(result);
     })
     .catch(err => {
       console.log(err);
@@ -49,8 +49,8 @@ router.post("/score", async (req, res) => {
 });
 
 // 랭킹보기
-router.get("/ranking", async (req, res) => {
-  return await controller.ranking
+router.get("/getrank", async (req, res) => {
+  return await controller.getrank
     .get(req.body)
     .then(result => {
       res.send(result);
