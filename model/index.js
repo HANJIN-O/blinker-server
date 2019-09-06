@@ -18,5 +18,11 @@ module.exports = {
     post: async function(reqBody) {
       return await db.score.post(reqBody);
     }
+  },
+
+  getrank: {
+    get: async function(reqBody) {
+      return await db.getrank.get(reqBody);
+    }
   }
 };

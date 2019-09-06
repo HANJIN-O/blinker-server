@@ -49,8 +49,8 @@ router.post("/score", async (req, res) => {
 });
 
 // 랭킹보기
-router.get("/ranking", async (req, res) => {
-  return await controller.ranking
+router.get("/getrank", async (req, res) => {
+  return await controller.getrank
     .get(req.body)
     .then(result => {
       res.send(result);
