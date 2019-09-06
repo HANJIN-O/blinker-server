@@ -3,7 +3,8 @@ const Sequelize = require("sequelize");
 const db = new Sequelize("blinker", "root", "", {
   host: "localhost",
   dialect: "mysql",
-  logging: false
+  logging: false,
+  port: 13306
 });
 
 const Users = db.define("users", {
