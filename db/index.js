@@ -78,11 +78,12 @@ module.exports = {
           score: reqBody.score
         })
         .then(res => {
-          let obj = Object.assign(res);
-          delete obj.createdAt;
-          delete obj.updatedAt;
-          delete obj.id;
-          return obj;
+          let ret = {
+            userId: res.userId,
+            gameId: res.gameId,
+            score: res.score
+          };
+          return ret;
         })
         .catch(err => err);
     }
