@@ -51,11 +51,40 @@ module.exports = {
     }
   },
 
-  // 점수등록
+  // 점수등록 (들어올때에는 username, gamename, score / 포스트할때에는 userId, gameId, score)
   score: {
     post: async function(reqBody) {
-      console.log("db index ", reqBody);
-      return sequelize.scores.create(reqBody);
+      let userId = await sequelize.users
+        .findOne({
+          where: { username: reqBody.username }
+        })
+        .then(user => {
+          return user.dataValues.id;
+        })
+        .catch(err => err);
+      let gameId = await sequelize.games
+        .findOne({
+          where: { gamename: reqBody.gamename }
+        })
+        .then(game => {
+          return game.dataValues.id;
+        })
+        .catch(err => err);
+
+      return await sequelize.scores
+        .create({
+          gameId: gameId,
+          userId: userId,
+          score: reqBody.score
+        })
+        .then(res => {
+          let obj = Object.assign(res);
+          delete obj.createdAt;
+          delete obj.updatedAt;
+          delete obj.id;
+          return obj;
+        })
+        .catch(err => err);
     }
   },
 
