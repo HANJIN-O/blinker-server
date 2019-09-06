@@ -1,0 +1,19 @@
+{
+  "development": {
+    "usrname": "root",
+    "password": null,
+    "dialect": "mysql",
+    "database": "blinker",
+    "host": "localhost",
+    "logging": false
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "blinker",
+    "host": "loclahost",
+    "dialect": "mysql",
+    "logging": false,
+    "port": 13306
+  }
+}
