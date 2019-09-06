@@ -6,7 +6,11 @@
   "author": "",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon cross-env app.js"
+    "start": "nodemon cross-env app.js",
+    "pm2 start": "pm2 cross-env start app.js",
+    "pm2 stop": "pm2 stop",
+    "pm2 monit": "pm2 monit",
+    "pm2 restart": "pm2 restart"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",

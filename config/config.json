@@ -1,6 +1,7 @@
 {
   "development": {
     "usrname": "root",
+    "password": null,
     "dialect": "mysql",
     "database": "blinker",
     "host": "localhost",
@@ -8,6 +9,7 @@
   },
   "production": {
     "username": "root",
+    "password": null,
     "database": "blinker",
     "host": "loclahost",
     "dialect": "mysql",
