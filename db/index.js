@@ -90,7 +90,7 @@ module.exports = {
   },
 
   getrank: {
-    get: async function(reqBody) {
+    get: async function() {
       return sequelize.scores
         .findAll({
           attributes: ["score"],
@@ -111,7 +111,8 @@ module.exports = {
         })
         .then(res => {
           let ret = [];
-          for (let i = 0; i < res.length; i++) {
+          let size = res.length > 10 ? 10 : res.length;
+          for (let i = 0; i < size; i++) {
             let username = res[i].dataValues.user.dataValues;
             let gamename = res[i].dataValues.game.dataValues;
             ret.push(

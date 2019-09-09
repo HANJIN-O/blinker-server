@@ -19,6 +19,7 @@ router.post("/signup", async (req, res) => {
 
 // 로그인
 router.post("/signin", async (req, res) => {
+  console.log(req.cookies);
   return await controller.signin
     .post(req.body)
     .then(result => {

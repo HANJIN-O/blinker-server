@@ -3,7 +3,7 @@ const cors = require("cors");
 const router = require("./routes.js");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
-const session = require("express-session");
+//const session = require("express-session");
 
 const app = express();
 
@@ -14,13 +14,6 @@ app.use(
   })
 );
 app.use(cookieParser());
-app.use(
-  session({
-    secret: "encryption",
-    resave: false,
-    saveUninitialized: false
-  })
-);
 app.use(express.json());
 app.use(morgan("dev"));
 
