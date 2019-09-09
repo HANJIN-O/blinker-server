@@ -7,11 +7,15 @@ const session = require("express-session");
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    credentials: true
+  })
+);
 app.use(cookieParser());
 app.use(
   session({
-    secret: "eencryption",
+    secret: "encryption",
     resave: false,
     saveUninitialized: false
   })
