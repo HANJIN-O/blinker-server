@@ -19,13 +19,12 @@ router.post("/signup", async (req, res) => {
 
 // 로그인
 router.post("/signin", async (req, res) => {
-  console.log(req.session);
   return await controller.signin
     .post(req.body)
     .then(result => {
       if (result[0] === null)
         throw `{error: username or password is not correct}`;
-      res.cookie("blinker", [result[1], result[2]], { maxAge: 100 * minute });
+      res.cookie("username", result[1], { maxAge: 100 * minute });
       res.status(200).send("Login Success");
     })
     .catch(err => {
@@ -39,6 +38,7 @@ router.post("/score", async (req, res) => {
   return await controller.score
     .post(req.body)
     .then(result => {
+      console.log(result);
       res.status(200).send(result);
     })
     .catch(err => {
