@@ -32,22 +32,30 @@ module.exports = {
             username: reqBody.username
           }
         })
-        .then(res => res.dataValues.salt)
+        .then(res => {
+          return res !== null ? res.dataValues.salt : 0;
+        })
         .catch(err => {
           console.log(err);
         });
-      let hash = bcrypt.hashSync(reqBody.password, salt);
-      let cookies = bcrypt.hashSync(reqBody.username + reqBody.password, salt);
 
-      return sequelize.users
-        .findOne({
-          where: {
-            username: reqBody.username,
-            password: hash
-          }
-        })
-        .then(result => [result, reqBody.username, cookies])
-        .catch(err => err);
+      if (salt !== 0) {
+        let hash = bcrypt.hashSync(reqBody.password, salt);
+        let cookies = bcrypt.hashSync(
+          reqBody.username + reqBody.password,
+          salt
+        );
+
+        return sequelize.users
+          .findOne({
+            where: {
+              username: reqBody.username,
+              password: hash
+            }
+          })
+          .then(result => [result, reqBody.username, cookies])
+          .catch(err => err);
+      }
     }
   },
 
